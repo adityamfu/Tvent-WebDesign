@@ -21,12 +21,6 @@ toggleNavbarBtn.addEventListener('click', function () {
   }
 });
 
-navbarOverlay.addEventListener('click', function (event) {
-  if (event.target === navbarOverlay) {
-    closeNavbar();
-  }
-});
-
 function updateBackground(isDark) {
   const backgroundColor = isDark ? 0xe1dcd1 : 0x06142e;
   vantaInstance.setOptions({ backgroundColor });

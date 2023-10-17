@@ -149,8 +149,10 @@ ul.menu {
   display: flex;
   align-items: start;
   flex-direction: row;
-  justify-content: start;
-  gap: 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  /* gap: 20px; */
 }
 
 .menu li .nav-preview {
