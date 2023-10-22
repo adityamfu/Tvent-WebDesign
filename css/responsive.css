@@ -4,9 +4,11 @@
     width: 100%;
     height: 100vh;
   }
-  .all {
-    padding-inline: 1%;
+  canvas {
+    display: none;
+    z-index: -1;
   }
+
   .container > .navbar .nav-menu {
     padding-right: 0;
     display: flex;
@@ -102,6 +104,7 @@
   .events-section .top-content {
     display: flex;
     flex-direction: column;
+    padding-inline: 3%;
   }
   .events-section .grid-card {
     display: grid;
@@ -148,11 +151,10 @@
     max-width: 200px;
   }
 
-  .sponsor-logo img {
+  .sponsor-logo > img {
     width: 100%;
-    height: 120px;
+    height: 40px;
   }
-
   .footer-container {
     flex-direction: column;
     justify-content: start;
@@ -174,6 +176,8 @@
   }
   .copyright {
     margin-top: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
     text-align: center;
   }
   .img-footer {
@@ -191,6 +195,10 @@
     width: 100%;
     padding: 0;
     margin: 0;
+  }
+  canvas {
+    display: none;
+    z-index: -1;
   }
   .content {
     padding-top: 30px;
@@ -281,9 +289,7 @@
     font-size: 2rem;
     font-weight: 800;
   }
-  .all {
-    padding-inline: 3%;
-  }
+
   .welcome h1 {
     font-size: 2rem;
   }
@@ -308,9 +314,11 @@
   .about-content .video-container video {
     transform: none;
   }
+
   .events-section .top-content {
     display: flex;
     flex-direction: column;
+    padding-inline: 3%;
   }
   .events-section .grid-card {
     display: grid;
@@ -355,9 +363,9 @@
     max-width: 300px;
   }
 
-  .sponsor-logo img {
+  .sponsor-logo > img {
     width: 100%;
-    height: 130px;
+    height: 65px;
   }
   .footer-container {
     flex-direction: column;
@@ -384,6 +392,8 @@
 
   .copyright {
     margin-top: 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
     text-align: center;
   }
   .img-footer {
@@ -399,6 +409,10 @@
   .navbar {
     display: flex;
     padding: 1rem;
+  }
+  canvas {
+    display: none;
+    z-index: -1;
   }
   .navbar .brand a {
     font-size: 3rem;

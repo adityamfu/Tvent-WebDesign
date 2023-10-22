@@ -393,3 +393,9 @@ button:hover {
     height: 150px;
   }
 }
+.search-row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  /* padding: 2rem; */
+}

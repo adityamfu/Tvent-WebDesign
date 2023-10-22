@@ -1,75 +1,15 @@
-const toggleNavbarBtn = document.getElementById('toggleNavbar');
-const navbarOverlay = document.getElementById('navbarOverlay');
-
-function openNavbar() {
-  navbarOverlay.style.display = 'block';
-}
-
-function closeNavbar() {
-  navbarOverlay.style.display = 'none';
-}
-
-function isNavbarOpen() {
-  return navbarOverlay.style.display === 'block';
-}
-
-toggleNavbarBtn.addEventListener('click', function () {
-  if (isNavbarOpen()) {
-    closeNavbar();
-  } else {
-    openNavbar();
-  }
-});
-
-function updateBackground(isDark) {
-  const backgroundColor = isDark ? 0xe1dcd1 : 0x06142e;
-  vantaInstance.setOptions({ backgroundColor });
-}
-
-const darkModeToggle = document.getElementById('darkModeToggle');
-const body = document.body;
-let vantaInstance = null;
-
-function toggleDarkMode(isDark) {
-  body.classList.toggle('dark-mode', isDark);
-  darkModeToggle.checked = isDark;
-  localStorage.setItem('mode', isDark ? 'dark' : 'light');
-  updateBackground(isDark);
-}
-
-darkModeToggle.addEventListener('change', () => toggleDarkMode(darkModeToggle.checked));
-
-const userPreference = localStorage.getItem('mode');
-if (userPreference === 'dark') {
-  toggleDarkMode(true);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const vantajsContainer = document.getElementById('vantajs');
-  const isDarkMode = body.classList.contains('dark-mode');
-  vantaInstance = VANTA.HALO({
-    el: vantajsContainer,
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: true,
-    minHeight: 100.0,
-    minWidth: 100.0,
-    scale: 0.6,
-    scaleMobile: 0.7,
-    backgroundColor: isDarkMode ? 0xe1dcd1 : 0x06142e,
-  });
-});
+// One of my first <canvas> experiments, woop! :D
 
 var SCREEN_WIDTH = window.innerWidth;
 var SCREEN_HEIGHT = window.innerHeight;
 
-var RADIUS = 90;
+var RADIUS = 70;
 
 var RADIUS_SCALE = 1;
 var RADIUS_SCALE_MIN = 1;
-var RADIUS_SCALE_MAX = 1;
+var RADIUS_SCALE_MAX = 1.5;
 
-var QUANTITY = 30;
+var QUANTITY = 25;
 
 var canvas;
 var context;
@@ -78,7 +18,6 @@ var particles;
 var mouseX = SCREEN_WIDTH * 0.5;
 var mouseY = SCREEN_HEIGHT * 0.5;
 var mouseIsDown = false;
-let isDarkMode = false;
 
 function init() {
   canvas = document.getElementById('world');
@@ -86,7 +25,7 @@ function init() {
   if (canvas && canvas.getContext) {
     context = canvas.getContext('2d');
 
-    // register event listeners
+    // Register event listeners
     window.addEventListener('mousemove', documentMouseMoveHandler, false);
     window.addEventListener('mousedown', documentMouseDownHandler, false);
     window.addEventListener('mouseup', documentMouseUpHandler, false);
@@ -99,18 +38,6 @@ function init() {
     windowResizeHandler();
 
     setInterval(loop, 1000 / 60);
-  }
-
-  darkModeToggle.addEventListener('change', (event) => {
-    isDarkMode = event.target.checked;
-    updateBackground(isDarkMode);
-  });
-
-  const userPreference = localStorage.getItem('mode');
-  if (userPreference === 'dark') {
-    darkModeToggle.checked = true;
-    isDarkMode = true;
-    updateBackground(isDarkMode);
   }
 }
 
@@ -125,7 +52,7 @@ function createParticles() {
       shift: { x: mouseX, y: mouseY },
       speed: 0.01 + Math.random() * 0.04,
       targetSize: 1,
-      fillColor: '#' + ((Math.random() * 0x404040 + 0xaaaaaa) | 0).toString(18),
+      fillColor: '#' + ((Math.random() * 0x404040 + 0xaaaaaa) | 0).toString(16),
       orbit: RADIUS * 0.5 + RADIUS * 0.5 * Math.random(),
     };
 
@@ -181,12 +108,7 @@ function loop() {
 
   RADIUS_SCALE = Math.min(RADIUS_SCALE, RADIUS_SCALE_MAX);
 
-  if (isDarkMode) {
-    context.fillStyle = 'rgba(225, 220, 209, 0.5)';
-  } else {
-    context.fillStyle = 'rgba(6, 20, 46, 0.5)';
-  }
-
+  context.fillStyle = 'rgba(225, 220, 209, 1)';
   context.fillRect(0, 0, context.canvas.width, context.canvas.height);
 
   for (i = 0, len = particles.length; i < len; i++) {
@@ -194,26 +116,26 @@ function loop() {
 
     var lp = { x: particle.position.x, y: particle.position.y };
 
-    // set rotation
+    // Rotation
     particle.offset.x += particle.speed;
     particle.offset.y += particle.speed;
 
-    // follow mouse
+    // Follow mouse with some lag
     particle.shift.x += (mouseX - particle.shift.x) * particle.speed;
     particle.shift.y += (mouseY - particle.shift.y) * particle.speed;
 
-    // set position
+    // Apply position
     particle.position.x = particle.shift.x + Math.cos(i + particle.offset.x) * (particle.orbit * RADIUS_SCALE);
     particle.position.y = particle.shift.y + Math.sin(i + particle.offset.y) * (particle.orbit * RADIUS_SCALE);
 
-    // limit to screen bounds
+    // Limit to screen bounds
     particle.position.x = Math.max(Math.min(particle.position.x, SCREEN_WIDTH), 0);
     particle.position.y = Math.max(Math.min(particle.position.y, SCREEN_HEIGHT), 0);
 
     particle.size += (particle.targetSize - particle.size) * 0.05;
 
     if (Math.round(particle.size) == Math.round(particle.targetSize)) {
-      particle.targetSize = 1 + Math.random() * 8;
+      particle.targetSize = 1 + Math.random() * 7;
     }
 
     context.beginPath();

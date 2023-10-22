@@ -13,7 +13,13 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #06142e;
   font-weight: normal;
-  color: rgb(219, 229, 231);
+  color: #dbe5e7;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 #vantajs {
   position: absolute;
@@ -22,7 +28,7 @@ body {
   height: 100%;
 }
 a {
-  color: rgb(219, 229, 231);
+  color: #dbe5e7;
   text-decoration: none;
 }
 /* .container {
@@ -59,7 +65,7 @@ section {
 }
 .brand a {
   display: none;
-  color: rgb(219, 229, 231);
+  color: #dbe5e7;
 }
 @keyframes bone {
   0%,

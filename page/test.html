@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/test.css" />
+    <title>Login / Signup Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        vantaInstance = VANTA.HALO({
+          el: '#vantajs',
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: true,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          amplitudeFactor: 0.0,
+          xOffset: 0.2,
+          size: 1.6,
+          baseColor: 0x959eb6,
+          backgroundColor: 0x06142e,
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="vantajs"></div>
+    <div class="brand">
+      <h1>Tvent</h1>
+      <h1>Tvent</h1>
+    </div>
+    <div class="container">
+      <form class="signUp">
+        <h3>Sign Up</h3>
+        <div class="input">
+          <label for="name">Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="input">
+          <label for="email">Email</label>
+          <input type="email" id="email" required autocomplete="off" />
+        </div>
+        <div class="input">
+          <label for="npm">NPM</label>
+          <input type="text" id="npm" required />
+        </div>
+        <div class="input">
+          <label for="phone">Phone</label>
+          <input type="number" id="phone" required />
+        </div>
+        <div class="input">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+        <div class="input">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" required />
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message Eror!}}</strong>
+          </span>
+        </div>
+
+        <div class="bottom2">
+          <button class="form-btn dx" type="submit">Send</button>
+          <p>- or -</p>
+          <p>Already have an account? <b class="form-btn sx log-in" type="button"> Sign In</b></p>
+        </div>
+      </form>
+      <form class="signIn">
+        <h3>Sign In</h3>
+        <button class="fb" type="button">HI, Welcomeback !</button>
+
+        <div class="input">
+          <label for="email">Email</label>
+          <input type="email" id="email" required autocomplete="off" />
+        </div>
+        <div class="input">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+        <div class="check">
+          <label class="checkbox-container">
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+            Remember Me
+          </label>
+        </div>
+
+        <div class="bottom">
+          <button class="form-btn dx" type="submit" onclick="window.location.href = '../index.html'">Sign In</button>
+          <p>- or -</p>
+          <p>Don't have an account yet? <b class="form-btn sx back" type="button"> Sign Up</b></p>
+        </div>
+      </form>
+    </div>
+    <script>
+      const logInButton = document.querySelector('.log-in');
+      const signIn = document.querySelector('.signIn');
+      const signUp = document.querySelector('.signUp');
+      const backButton = document.querySelector('.back');
+
+      logInButton.addEventListener('click', function () {
+        signIn.classList.add('active-dx');
+        signUp.classList.add('inactive-sx');
+        signUp.classList.remove('active-sx');
+        signIn.classList.remove('inactive-dx');
+      });
+
+      backButton.addEventListener('click', function () {
+        signUp.classList.add('active-sx');
+        signIn.classList.add('inactive-dx');
+        signIn.classList.remove('active-dx');
+        signUp.classList.remove('inactive-sx');
+      });
+    </script>
+  </body>
+</html>
