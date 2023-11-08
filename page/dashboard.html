@@ -18,7 +18,7 @@
 
       <div class="menu-items">
         <ul class="nav-links">
-          <li>
+          <li class="active">
             <a href="#">
               <i class="fa-solid fa-clipboard"></i>
               <span class="link-name">Dahsboard</span>
@@ -67,9 +67,9 @@
             </a>
           </li>
           <li>
-            <a href="#">
-              <i class="fa-solid fa-gear"></i>
-              <span class="link-name">Settings</span>
+            <a href="../index.html">
+              <i class="fa-solid fa-house"></i>
+              <span class="link-name" title="Home">Home</span>
             </a>
           </li>
         </ul>
@@ -120,13 +120,12 @@
 
       <main>
         <div class="dashboard-container">
-          <!-- 4 cards top -->
-          <div class="card total1">
+          <div class="card total">
             <div class="info">
               <div class="info-detail">
                 <h3>Users</h3>
-                <p>Lorem ipsem dolor</p>
-                <h2>1,873,250 <span>People</span></h2>
+                <p></p>
+                <h2>1,873, <span>People</span></h2>
               </div>
               <div class="info-image">
                 <i class="fa-solid fa-users-line"></i>
@@ -134,11 +133,11 @@
             </div>
           </div>
 
-          <div class="card total2">
+          <div class="card total">
             <div class="info">
               <div class="info-detail">
                 <h3>Events</h3>
-                <p>Lorem ipsem dolor</p>
+                <p></p>
                 <h2>10,890 <span>Events</span></h2>
               </div>
               <div class="info-image">
@@ -147,11 +146,11 @@
             </div>
           </div>
 
-          <div class="card total3">
+          <div class="card total">
             <div class="info">
               <div class="info-detail">
                 <h3>Admins</h3>
-                <p>Lorem ipsem dolor</p>
+                <p></p>
                 <h2>340 <span>Admins</span></h2>
               </div>
               <div class="info-image">
@@ -160,11 +159,11 @@
             </div>
           </div>
 
-          <div class="card total4">
+          <div class="card total">
             <div class="info">
               <div class="info-detail">
                 <h3>News</h3>
-                <p>Lorem ipsem dolor</p>
+                <p></p>
                 <h2>56 <span>News</span></h2>
               </div>
               <div class="info-image">
@@ -173,7 +172,6 @@
             </div>
           </div>
 
-          <!-- 2 cards bottom -->
           <div class="card detail">
             <div class="detail-header">
               <h2>All</h2>
@@ -273,16 +271,7 @@
           <div class="card customer">
             <h2>Events Activities</h2>
             <div class="customer-wrapper">
-              <img class="customer-image" alt="no avaible image" src="../images/bayernmunich.png" />
-              <div class="customer-name">
-                <h4>Mollitia rerum</h4>
-                <p>Lorem ipsum dolor sit amet.</p>
-              </div>
-              <p class="customer-date">Today</p>
-            </div>
-            <!-- T add more-->
-            <div class="customer-wrapper">
-              <img class="customer-image" alt="no avaible image" src="../images/bayernmunich.png" />
+              <img class="customer-image" alt="no avaible image" src="{{ asset('assets/images/uti.png') }}" />
               <div class="customer-name">
                 <h4>Mollitia rerum</h4>
                 <p>Lorem ipsum dolor sit amet.</p>
@@ -290,33 +279,17 @@
               <p class="customer-date">Today</p>
             </div>
             <div class="customer-wrapper">
-              <img class="customer-image" alt="no avaible image" src="../images/bayernmunich.png" />
+              <img class="customer-image" alt="no avaible image" src="{{ asset('assets/images/uti.png') }}" />
               <div class="customer-name">
                 <h4>Mollitia rerum</h4>
                 <p>Lorem ipsum dolor sit amet.</p>
               </div>
-              <p class="customer-date">Yesterday</p>
-            </div>
-            <div class="customer-wrapper">
-              <img class="customer-image" alt="no avaible image" src="../images/bayernmunich.png" />
-              <div class="customer-name">
-                <h4>Mollitia rerum</h4>
-                <p>Lorem ipsum dolor sit amet.</p>
-              </div>
-              <p class="customer-date">Yesterday</p>
-            </div>
-            <div class="customer-wrapper">
-              <img class="customer-image" alt="no avaible image" src="../images/bayernmunich.png" />
-              <div class="customer-name">
-                <h4>Mollitia rerum</h4>
-                <p>Lorem ipsum dolor sit amet.</p>
-              </div>
-              <p class="customer-date">Yesterday</p>
+              <p class="customer-date">Today</p>
             </div>
           </div>
         </div>
       </main>
     </section>
-    <script src="../dashboard.js"></script>
+    <script src="../js/dashboard.js"></script>
   </body>
 </html>

@@ -12,14 +12,34 @@
     <link rel="stylesheet" href="./css/about.css" />
     <link rel="stylesheet" href="./css/events.css" />
     <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/notify.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
     <title>Tvent - HomePage</title>
   </head>
   <body>
-    <div id="vantajs"></div>
     <canvas id="world"></canvas>
+    <div class="notif-manager">
+      <div class="notification" id="notification">
+        Hi! Welcome <b>Admin</b>
+        <span class="hide-icon" onclick="hideNotification()"><i class="fa-solid fa-xmark"></i></span>
+      </div>
+
+      <div class="notify-container">
+        <span class="close-icon" onclick="closeNotification()"><i class="fa-solid fa-xmark"></i></span>
+        <h1>Category Here!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia nulla beatae saepe? Aliquid, architecto adipisci ipsum dolores, ab quasi, suscipit alias sed exercitationem natus quibusdam?</p>
+        <div class="hashtags">
+          <span class="hashtag">Seni</span>
+          <span class="hashtag">IT</span>
+          <span class="hashtag">E-sport</span>
+          <span class="hashtag">Non Academic</span>
+        </div>
+      </div>
+      <div class="notification logout" id="notification">
+        <a href="" title="LogIn">LogIn </a>Required!
+        <span class="hide-icon" onclick="hideNotification()"><i class="fa-solid fa-xmark"></i></span>
+      </div>
+    </div>
     <div class="all">
       <div id="home" class="container">
         <div class="navbar" id="myNavbar" data-aos="fade-down" data-aos-duration="1500">
@@ -78,9 +98,9 @@
         </defs>
       </svg>
 
-      <h1 class="outline-css typ">Universitas</h1>
-      <h1 class="outline-svg typ">Teknokrat</h1>
-      <h1 class="outline-svg gradient typ">Indonesia</h1>
+      <h2 class="outline-css typ">Universitas</h2>
+      <h2 class="outline-svg typ">Teknokrat</h2>
+      <h2 class="outline-svg gradient typ">Indonesia</h2>
 
       <section id="about" class="about-section">
         <div class="marquee">
@@ -300,10 +320,10 @@
 
       <section class="sponsor">
         <div class="thx">
-          <h2>
+          <h3>
             Special <br />
             Thanks!
-          </h2>
+          </h3>
         </div>
         <div class="sponsor-content" data-aos="fade-right" data-aos-delay="500" data-aos-duration="2000">
           <div class="sponsor-container">
@@ -437,6 +457,9 @@
       }
     </script>
 
-    <script src="theme.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/animation.js"></script> 
+    <script src="./js/notify.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

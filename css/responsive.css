@@ -4,23 +4,31 @@
     width: 100%;
     height: 100vh;
   }
-  canvas {
+  #vantajs {
     display: none;
+    position: absolute;
     z-index: -1;
+    width: 100%;
+    height: 100%;
   }
-
-  .container > .navbar .nav-menu {
+  .navbar .nav-menu {
     padding-right: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     gap: 5px;
   }
-  .container > .navbar .brand a {
-    font-size: 2rem;
+  .container .navbar .brand a {
+    font-size: 2.2rem;
     font-weight: 800;
     display: block;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar li a {
+    text-decoration: none;
+    font-size: 14px;
   }
   .container > .navbar {
     display: flex;
@@ -38,6 +46,17 @@
     padding: 0;
     margin: 0;
   }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+  }
+  .navbar .brand {
+    padding: 0;
+  }
   .menu {
     display: flex;
     text-align: end;
@@ -46,8 +65,8 @@
     backdrop-filter: blur(16px) saturate(100%) contrast(100%);
     -webkit-backdrop-filter: blur(16px) saturate(100%) contrast(100%);
     position: absolute;
-    top: 95px;
-    right: 28%;
+    top: 100px;
+    right: 15%;
     /* left: 50%; */
     z-index: 1;
     border-radius: 5px;
@@ -56,6 +75,7 @@
   .menu > li {
     padding: 12px 10px 0 10px;
   }
+
   .menu.active {
     display: flex;
   }
@@ -66,21 +86,34 @@
   .tools .toggle-btn {
     display: flex;
     cursor: pointer;
-    padding: 18px 10px;
+    padding: 18px 9px;
     border: 0.1rem rgb(182, 175, 175) solid;
     border-radius: 0.3rem;
   }
-  .navbar > .tools {
+  .dark-mode-switch label {
+    padding: 19.8px;
+  }
+  .navbar .tools {
     gap: 0.3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
   }
-  .welcome h1 {
-    font-size: 2rem;
+  .menu li .nav-dropdown {
+    top: 100%;
+    right: 0;
   }
-  h1 {
+  h1.lead b {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+  h1.lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  h2 {
     font-size: 2rem;
   }
   .events-text h2 {
@@ -138,7 +171,7 @@
     justify-content: center;
   }
 
-  .thx h2 {
+  .thx h3 {
     font-size: 2rem;
   }
   .sponsor-content {
@@ -187,6 +220,22 @@
     max-width: 100%;
     height: 130px;
   }
+  .route {
+    display: none;
+  }
+  .route-icons {
+    display: none;
+  }
+  .notif-manager {
+    position: fixed;
+    top: 7.5rem;
+    right: 18px;
+    z-index: 99999999;
+  }
+  .notify-container {
+    padding: 10px;
+    max-width: 190px;
+  }
 }
 
 @media (min-width: 291px) and (max-width: 767px) {
@@ -196,13 +245,17 @@
     padding: 0;
     margin: 0;
   }
-  canvas {
-    display: none;
-    z-index: -1;
-  }
-  .content {
-    padding-top: 30px;
-    padding-inline: 3%;
+  /* #vantajs {
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+  } */
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
   }
   .brand a i {
     rotate: 0deg;
@@ -211,8 +264,9 @@
   .container > .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    padding: 0;
     padding-block: 0.7rem;
   }
   .navbar .menu {
@@ -224,7 +278,12 @@
     margin: 0;
   }
   .navbar ul {
-    padding-right: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 22px;
   }
   .menu {
     display: flex;
@@ -235,13 +294,16 @@
     -webkit-backdrop-filter: blur(16px) saturate(100%) contrast(100%);
     position: absolute;
     top: 65px;
-    right: 28%;
+    right: 5%;
     /* left: 50%; */
     z-index: 1;
     border-radius: 7px;
     border: 0.1rem rgb(182, 175, 175) solid;
   }
-
+  .menu li .nav-dropdown {
+    top: 100%;
+    right: 0;
+  }
   .menu.active {
     display: flex;
   }
@@ -259,19 +321,20 @@
     display: block;
   }
   /* .navbar.horizontal {
-      padding-top: 2rem;
-    } */
-  ul.tools {
+    padding-top: 2rem;
+  } */
+  li.tools {
     gap: 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 0;
   }
   .tools .toggle-btn {
     display: flex;
     cursor: pointer;
-    padding: 20px 12px;
+    padding: 20px 11px;
     border: 0.1rem rgb(182, 175, 175) solid;
     border-radius: 0.3rem;
   }
@@ -283,6 +346,9 @@
     font-size: 13.4px;
     border-radius: 6px;
   }
+  .navbar .brand {
+    padding-left: 22px;
+  }
   .navbar .brand a {
     padding: 0;
     margin: 0;
@@ -290,10 +356,14 @@
     font-weight: 800;
   }
 
-  .welcome h1 {
-    font-size: 2rem;
+  h1.lead b {
+    font-size: 3rem;
   }
-  h1 {
+  h1.lead {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+  h2 {
     font-size: 2rem;
   }
   .events-text h2 {
@@ -350,7 +420,7 @@
     flex-direction: column;
     justify-content: center;
   }
-  .thx h2 {
+  .thx h3 {
     font-size: 2rem;
   }
   .sponsor-content {
@@ -382,7 +452,7 @@
     font-size: 17px;
   }
   .contact,
-  .route {
+  .route-page {
     flex: 0 0 100%;
   }
 
@@ -403,16 +473,28 @@
     max-width: 100%;
     height: 150px;
   }
+  .route {
+    display: none;
+  }
+  .route-icons {
+    display: none;
+  }
+  .notif-manager {
+    position: fixed;
+    top: 4.5rem;
+    right: 18px;
+    z-index: 9999;
+  }
+  .notify-container {
+    padding: 10px;
+    max-width: 190px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .navbar {
     display: flex;
     padding: 1rem;
-  }
-  canvas {
-    display: none;
-    z-index: -1;
   }
   .navbar .brand a {
     font-size: 3rem;
@@ -438,8 +520,11 @@
   }
   .about-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 3rem;
+    gap: 1rem;
   }
 
   .top-content {
@@ -455,7 +540,7 @@
     flex-direction: row;
     justify-content: center;
   }
-  .thx h2 {
+  .thx h3 {
     font-size: 3rem;
   }
   .sponsor-content {
